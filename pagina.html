@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inicio</title>
+</head>
+<body>
+	<h1>Bienvenido a mi sitio web</h1>
+
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	$("#login_form").on("submit",function(){
+		$.ajax({
+			type:"POST",
+			header:{"Authorization":"token"+ document.cookie},
+			url:"https://reqres.in/api/login",
+			data:$(this).serialize(),
+			success:function(response, responseText){
+			},
+			error: function(response,responseText){
+				console.log(response.responseText);
+			},
+		});
+		return false
+	});
+});
+</script>
+</html>
